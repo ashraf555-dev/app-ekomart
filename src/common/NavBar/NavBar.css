@@ -1,0 +1,576 @@
+/* =======================
+   Base
+======================= */
+* {
+  box-sizing: border-box;
+}
+
+* a, button, li{
+  transition: all 0.3s ease;
+  cursor: pointer;
+} 
+
+span {
+  cursor: pointer;
+}
+
+hr {
+  color: rgba(128, 128, 128, 0.396);
+  height: 3px;
+}
+
+/* =======================
+   Navbar links (Main bar only)
+======================= */
+.div > ul > li {
+  padding: 2px;
+}
+
+.div > ul > li > a {
+  color: var(--white-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.div > ul > li:hover > a {
+  color: var(--secondary-color);
+}
+
+.div > ul > li > a.active {
+  color: var(--secondary-color) !important;
+}
+
+/* =======================
+  Navbar text
+======================= */
+.NavBar > * p,
+.div p {
+  color: var(--white-color);
+  font-size: 17px;
+}
+
+.NavBar > * p span,
+.div p span {
+  font-size: 12px;
+  color: #ffffffd0;
+}
+
+/* =======================
+  Account / Wishlist / Cart buttons
+======================= */
+.span {
+  position: relative;
+  background-color: var(--white-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: var(--black-color);
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.span > *:not(.drop) {
+  font-size: 18px;
+  color: inherit;
+}
+
+.span:hover {
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+}
+
+/* لون الأيقونات والنص فقط */
+.span:hover > span,
+.span:hover svg {
+  /* keep icon/text visible on white background */
+  color: var(--main-color);
+}
+.span > *:not(.drop) {
+  font-size: 18px;
+}
+
+/* =======================
+  Counter circle
+======================= */
+.circle {
+  min-height: 18px;
+  min-width: 18px;
+  border-radius: 50%;
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--white-color);
+}
+
+/* =======================
+  Wishlist / Cart dropdown
+======================= */
+.drop {
+  min-width: max-content;
+  background-color: var(--white-color);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  z-index: 50;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  padding: 40px 20px;
+
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.3s ease-in-out;
+
+  color: var(--black-color);
+}
+
+.span:hover .drop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* نصوص الـ drop */
+.drop-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--black-color);
+}
+
+.drop-row {
+  color: var(--black-color) !important;
+  font-size: 15px;
+  margin: 2px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: var(--black-color);
+}
+
+.drop .price {
+  color: var(--secondary-color);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.drop .textBold {
+  color: var(--black-color) !important;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+/* Progress bar */
+.drop-progress {
+  width: 100%;
+  height: 6px;
+  background-color: var(--gray-color);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.drop-progress-fill {
+  width: var(--cart-progress, 0%);
+  height: 100%;
+  background-color: var(--main-color);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Buttons */
+.drop-btn {
+  display: block;
+  color: var(--white-color);
+  background-color: var(--main-color);
+  padding: 15px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--main-color);
+  color: var(--white-color);
+  transition: all 0.2s ease;
+}
+
+.drop-btn.bt {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border: 1px solid var(--main-color);
+}
+
+.drop-btn.bt:hover {
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+
+/* ===============================
+  FIX: cart & wishlist dropdown
+   =============================== */
+
+/* امنع أي توريث لون من .span */
+.span .drop {
+  color: var(--black-color);
+}
+
+/* أعد فرض لون كل النصوص داخل drop */
+.span .drop b,
+.span .drop p,
+.span .drop span {
+  color: var(--black-color);
+}
+
+/* تأكيد إن hover الأب ما يأثرش */
+
+/* =======================
+  Categories dropdown
+======================= */
+.cat {
+  transition: all 0.3s ease-in-out;
+  border-right: 1px solid rgba(100, 99, 99, 0.218);
+}
+
+.cat:hover {
+  background-color: var(--secondary-color);
+}
+
+.cat:hover .catSpan {
+  color: var(--white-color);
+}
+
+.dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+  pointer-events: none;
+
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border-radius: 2px 2px 8px 8px;
+  overflow: hidden;
+  z-index: 50;
+}
+
+.cat:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+  pointer-events: auto;
+}
+
+.dropdown ol li {
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown ol li a {
+  margin-left: 15px;
+  color: var(--black-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dropdown ol li .i {
+  color: var(--main-color);
+  transition: color 0.3s ease;
+}
+
+.dropdown ol li:hover {
+  background-color: var(--main-color);
+}
+
+.dropdown ol li:hover a,
+.dropdown ol li:hover .i {
+  color: var(--white-color);
+}
+
+.dropDownLinks {
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.3s ease-in-out;
+}
+.div > ul > li:hover .dropDownLinks {
+  opacity: 1;
+  transform: scaleY(1);
+  display: block; /* ensure visible */
+  z-index: 1000; /* stay above other content */
+}
+
+/* hover feedback for links inside dropDownLinks */
+.dropDownLinks ol li {
+  transition: background-color 0.3s ease;
+}
+.dropDownLinks ol li:hover {
+  background-color: var(--main-color);
+}
+.dropDownLinks ol li:hover a {
+  color: var(--white-color);
+  transition: color 0.2s ease;
+}
+
+/* =====================================
+   RESPONSIVE FIXES (ADD ONLY)
+===================================== */
+
+/* ---------- TABLET & MOBILE ---------- */
+@media (max-width: 1024px) {
+  /* Hide top bar completely */
+  .NavBar > div:first-child,
+  .NavBar hr {
+    display: none !important;
+  }
+
+  /* Main header spacing */
+  .NavBar > div:nth-child(3) {
+    height: auto;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  /* Hide desktop search */
+  .NavBar .lg\\:flex.hidden {
+    display: none !important;
+  }
+
+  /* Compact account / cart / wishlist */
+  .span {
+    min-width: auto !important;
+    padding: 8px !important;
+  }
+
+  /* Hide text, keep icons + badges */
+  .span > span:not(.circle) {
+    display: none;
+  }
+
+  /* Fix badge position */
+  .circle {
+    top: -8px;
+    right: -6px;
+  }
+}
+
+/* ---------- DROPDOWNS ON MOBILE ---------- */
+@media (max-width: 1024px) {
+  /* Disable hover animation */
+  .drop,
+  .dropdown,
+  .dropDownLinks {
+    position: static;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none;
+    display: none;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  /* Open dropdown on tap (focus) */
+  li:focus-within > .dropDownLinks,
+  .span:focus-within > .drop,
+  .cat:focus-within > .dropdown {
+    display: block;
+  }
+
+  /* Dropdown items spacing */
+  .dropDownLinks ol li,
+  .dropdown ol li {
+    padding: 10px 5px;
+  }
+}
+
+/* ---------- SMOOTH UX ---------- */
+@media (max-width: 1024px) {
+  a,
+  li,
+  span {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Mobile menu look */
+@media (max-width: 1024px) {
+  .div {
+    background-color: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    height: 100vh;
+  }
+
+  .div > ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .div > ul > li > a {
+    color: var(--black-color);
+    padding: 14px 16px;
+    border-radius: 8px;
+    width: 100%;
+    display: block;
+  }
+
+  .div > ul > li:hover > a {
+    background-color: #f4f4f4;
+    color: var(--main-color);
+  }
+
+  .div > ul > li > a.active {
+    background-color: var(--main-color);
+    color: var(--white-color) !important;
+  }
+}
+
+/* ===============================
+   MOBILE SLIDE MENU (RIGHT)
+================================ */
+@media (max-width: 1024px) {
+  .div {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 85%;
+    max-width: 380px;
+
+    background-color: #ffffff;
+    z-index: 999;
+
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 24px;
+
+    overflow-x: hidden; /* prevent horizontal scroll on open */
+
+    transform: translateX(100%);
+    transition: transform 0.35s ease-in-out;
+  }
+
+  .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .mobile-overlay.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .mobile-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  /* mobile header search & buttons */
+  .mobile-menu-header input {
+    transition:
+      border-color 0.3s ease,
+      background-color 0.3s ease;
+  }
+  .mobile-menu-header input:focus {
+    outline: none;
+    border-color: var(--main-color);
+  }
+  .mobile-menu-header button {
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+  .mobile-menu-header button:hover {
+    opacity: 0.9;
+  }
+
+  /* mobile footer */
+  .mobile-menu-footer {
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  .div.menu-open .mobile-menu-footer {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .mobile-menu-footer button {
+    transition: background-color 0.3s ease;
+  }
+
+  .div.menu-open {
+    transform: translateX(0);
+  }
+
+  .div.menu-closed {
+    transform: translateX(100%);
+    pointer-events: none;
+  }
+
+  /* links */
+  .div ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .div > ul > li > a {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 18px;
+    color: var(--black-color);
+  }
+
+  .div > ul > li > a.active {
+    background-color: var(--main-color);
+    color: var(--white-color) !important;
+  }
+
+  .div > ul > li:hover > a {
+    background-color: #f4f4f4;
+    color: var(--main-color);
+  }
+
+  /* hide delivery text */
+  .div > p {
+    display: none;
+  }
+}

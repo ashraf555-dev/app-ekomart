@@ -1,0 +1,74 @@
+/* @import url("@fontsource/barlow"); */
+
+/* Tailwind v4 way */
+@import "tailwindcss";
+
+/* ===== custom css تحت فقط ===== */
+
+:root {
+  --main-color: rgb(98, 157, 35);
+  --secondary-color: rgb(44, 60, 40);
+  --footer-color: rgb(26, 26, 26);
+  --white-color: #ffffff;
+  --gray-color: rgb(136, 136, 136);
+  --black-color: #000;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+body {
+  font-family: "Barlow", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* SweetAlert2 toast – project colors, non-intrusive */
+.swal-toast-popup {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  border-left: 4px solid var(--main-color);
+}
+.swal-toast-icon {
+  color: var(--main-color);
+}
+.swal-toast-title {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+.swal-toast-progress {
+  background: var(--main-color) !important;
+}
+
+/* Global loading bar – indeterminate animation during page transitions */
+@keyframes global-loading-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+.global-loading-bar-inner {
+  animation: global-loading-slide 1.2s ease-in-out infinite;
+  width: 30%;
+  min-width: 80px;
+}
+
+/* Card grid fade-in when replacing skeletons (Tailwind-friendly) */
+@keyframes card-grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.card-grid-fade-in {
+  animation: card-grid-fade-in 0.35s ease-out forwards;
+}

@@ -1,0 +1,7 @@
+.healthy {
+    background: url("../../assets/images/01\ \(3\).png") no-repeat right / cover;
+    background-size: 50% 100%;
+    background-color: var(--secondary-color);
+    height: 190px;
+    border-radius: 10px;
+}

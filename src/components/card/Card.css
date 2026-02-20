@@ -1,0 +1,111 @@
+/* Product Card Styles */
+.product-card {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  background: #fff;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition:
+    box-shadow 0.3s,
+    transform 0.3s;
+}
+.product-card:hover {
+  box-shadow: 0 6px 24px rgba(98, 157, 35, 0.12);
+  transform: translateY(-4px) scale(1.02);
+}
+.product-card .product-image {
+  width: 100%;
+  height: 176px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s;
+}
+.product-card:hover .product-image {
+  transform: scale(1.08);
+}
+/* Restore original hover effect for actions */
+/* رجوع تأثير الهوفر الأصلي للـ product-actions */
+.product-card .product-actions {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: var(--main-color);
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) scaleY(0);
+  transition: all 0.3s;
+}
+.group:hover .product-actions {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scaleY(1);
+}
+.product-card .product-actions svg {
+  color: #fff;
+  cursor: pointer;
+  transition:
+    color 0.3s,
+    transform 0.3s;
+}
+.product-card .product-actions svg:hover {
+  color: #6cbf44;
+  transform: scale(1.2);
+}
+.product-card .product-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.product-card .product-weight {
+  font-size: 0.95rem;
+  color: #888;
+}
+.product-card .product-price {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #e53935;
+  margin-right: 0.5rem;
+}
+.product-card .product-old-price {
+  font-size: 0.9rem;
+  color: #bbb;
+  text-decoration: line-through;
+}
+.product-card .product-stars {
+  display: flex;
+  gap: 0.15rem;
+  color: #ff9800;
+  margin-bottom: 0.5rem;
+}
+.product-card .add-to-cart {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background: var(--main-color);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.6rem 0;
+  margin-top: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.product-card .add-to-cart:hover {
+  background: var(--secondary-color);
+}
