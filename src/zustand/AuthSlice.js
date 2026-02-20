@@ -15,11 +15,14 @@ const useAuth = create(() => ({
   registerHandler: async (userData) => {
     const { email, password } = userData;
     try {
-      showLoadingAlert("جاري إنشاء الحساب ...");
+      // show alerts in English instead of Arabic
+      showLoadingAlert("Creating account...");
       await createUserWithEmailAndPassword(auth, email, password);
-      showSuccessAlert("تم إنشاء الحساب بنجاح!");
+      showSuccessAlert("Account created successfully!");
     } catch (error) {
-      showErrorAlert(error.message || "حدث خطأ أثناء إنشاء الحساب!");
+      showErrorAlert(
+        error.message || "An error occurred while creating the account!",
+      );
     }
   },
 }));
