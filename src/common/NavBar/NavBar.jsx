@@ -5,6 +5,7 @@
 import "./NavBar.css";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo-02.svg";
+import logo2 from "../../assets/images/logo-01.svg";
 // icons
 import { FaBarsStaggered } from "react-icons/fa6";
 import { IoIosSearch } from "react-icons/io";
@@ -184,7 +185,8 @@ export default function NavBar() {
       <hr className="lg:block hidden" />
       <div className="h-28 px-2 xl:px-24 flex items-center justify-between">
         <Link to={"/"}>
-          <img src={logo} alt="" />
+          <img src={logo} alt="" className=" lg:block hidden" />
+          <img src={logo2} alt="" className=" lg:hidden block " />
         </Link>
 
         <div className=" lg:flex hidden items-center relative bg-(--white-color) h-12 w-130 rounded-md ">
