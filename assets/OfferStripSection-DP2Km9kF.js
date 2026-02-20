@@ -1,0 +1,1 @@
+import{t as e}from"./index-LR6X8NeB.js";import{n as t,t as n}from"./infoStripData-DBZJSG4G.js";var r=e();function i(){return(0,r.jsx)(t,{items:n})}export{i as t};
